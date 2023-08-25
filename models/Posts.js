@@ -1,15 +1,43 @@
 module.exports = (sequelize, DataTypes) => {
     
     const Posts = sequelize.define('Posts', {
-        title: {
+        buyerAccount: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        postText: {
+        buyerName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        username: {
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        typeOfCompliantSend: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        compliantNature: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        recieveCompliantDate: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        endCompliantDate: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        note: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        justifiedComplaint: {
             type: DataTypes.STRING,
             allowNull: false,
         }
