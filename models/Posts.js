@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
         justifiedComplaint: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        compliantEnd: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     });
 

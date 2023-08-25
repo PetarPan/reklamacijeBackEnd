@@ -85,7 +85,7 @@ router.put("/endCompliantDate", async (req, res) => {
 //update note
 router.put("/note", async (req, res) => {
   const {newNote, id} = req.body;
-  await Posts.update({note: Newnote}, {where: {id: id}});
+  await Posts.update({note: newNote}, {where: {id: id}});
   res.json(newNote);
 });
 //update justifiedCompliant
