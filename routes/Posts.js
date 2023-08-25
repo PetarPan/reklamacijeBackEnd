@@ -94,6 +94,12 @@ router.put("/justifiedCompliant", async (req, res) => {
   await Posts.update({justifiedCompliant: newJustifiedCompliant}, {where: {id: id}});
   res.json(newJustifiedCompliant);
 });
+//update compliantEnd
+router.put("/compliantEnd", async (req, res) => {
+  const {newCompliantEnd, id} = req.body;
+  await Posts.update({compliantEnd: newCompliantEnd}, {where: {id: id}});
+  res.json(newCompliantEnd);
+});
 
 //DELETE COMPLIANT //
 router.delete("/:postId", validateToken, async (req, res) => {
