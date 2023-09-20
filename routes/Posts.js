@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Posts, Likes } = require("../models");
+const { Posts, Likes} = require("../models");
 const {validateToken} = require('..//middlewares/AuthMiddleware');
 
 
@@ -19,18 +19,28 @@ router.get('/byId/:id', async (req, res) => {
 
 router.get('/byuserId/:id', async (req, res) => {
   const id = req.params.id;
-  const listOfPosts = await Posts.findAll({where: { UserId: id }, include: [Likes],});
+  const listOfPosts = await Posts.findAll({where: { UserId: id  }, include: [Likes],});
   res.json(listOfPosts);
 })
 
 // CREATE COMPLIANT //
 router.post("/", validateToken, async (req, res) => {
   const post = req.body;
+
   post.username = req.user.username;
+  
   post.UserId = req.user.id;
+  post.name = req.user.name; 
+  post.lastName = req.user.lastName; 
+
   await Posts.create(post);
   res.json(post);
 });
+
+
+
+
+
 
 // UPDATE COMPLIANT // 
 //update buyerAccount
@@ -91,7 +101,7 @@ router.put("/note", async (req, res) => {
 //update justifiedCompliant
 router.put("/justifiedCompliant", async (req, res) => {
   const {newJustifiedCompliant, id} = req.body;
-  await Posts.update({justifiedCompliant: newJustifiedCompliant}, {where: {id: id}});
+  await Posts.update({justifiedComplaint: newJustifiedCompliant}, {where: {id: id}});
   res.json(newJustifiedCompliant);
 });
 //update compliantEnd
@@ -113,5 +123,7 @@ router.delete("/:postId", validateToken, async (req, res) => {
 });
 
 
-
 module.exports = router;
+
+
+

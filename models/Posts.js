@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false,
         },
+       /*  resolutionTime: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }, */
         note: {
             type: DataTypes.STRING,
             allowNull: false,
